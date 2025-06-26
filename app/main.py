@@ -38,9 +38,7 @@ class Visitor:
 
 class SlideLimitationValidator(ABC):
     def __init__(self, age: int, weight: int, height: int) -> None:
-        self.age = age
-        self.weight = weight
-        self.height = height
+        pass
 
 
 class ChildrenSlideLimitationValidator(SlideLimitationValidator):
@@ -51,6 +49,10 @@ class ChildrenSlideLimitationValidator(SlideLimitationValidator):
     def __init__(self, age: int, weight: int, height: int) -> None:
         super().__init__(age, weight, height)
 
+        self.age = age
+        self.height = height
+        self.weight = weight
+
 
 class AdultSlideLimitationValidator(SlideLimitationValidator):
     age = IntegerRange(14, 60)
@@ -59,6 +61,10 @@ class AdultSlideLimitationValidator(SlideLimitationValidator):
 
     def __init__(self, age: int, weight: int, height: int) -> None:
         super().__init__(age, weight, height)
+
+        self.age = age
+        self.height = height
+        self.weight = weight
 
 
 class Slide:
